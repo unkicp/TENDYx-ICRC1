@@ -211,6 +211,7 @@ module {
             symbol = "UCLTs";
             decimals = 8;
             fee = 5 * (10 ** 8);
+            logo = "";
             max_supply = 1_000_000_000 * (10 ** 8);
             minting_account = canister;
             initial_balances = [];
@@ -230,13 +231,14 @@ module {
 
                         // returns without trapping
                         assertAllTrue([
-                            token.name == args.name,
-                            token.symbol == args.symbol,
-                            token.decimals == args.decimals,
+                            token._name == args.name,
+                            token._symbol == args.symbol,
+                            token._decimals == args.decimals,
                             token._fee == args.fee,
+                            token._logo == args.logo,
                             token.max_supply == args.max_supply,
 
-                            token.minting_account == args.minting_account,
+                            token._minting_account == args.minting_account,
                             SB.toArray(token.supported_standards) == [U.default_standard],
                             SB.size(token.transactions) == 0,
                         ]);
@@ -524,7 +526,7 @@ module {
 
                                 let mint_args = {
                                     to = user1;
-                                    amount = 200 * (10 ** Nat8.toNat(token.decimals));
+                                    amount = 200 * (10 ** Nat8.toNat(token._decimals));
                                     memo = null;
                                     created_at_time = null;
                                 };
@@ -538,7 +540,7 @@ module {
                                 let transfer_args : T.TransferArgs = {
                                     from_subaccount = user1.subaccount;
                                     to = user2;
-                                    amount = 50 * (10 ** Nat8.toNat(token.decimals));
+                                    amount = 50 * (10 ** Nat8.toNat(token._decimals));
                                     fee = ?token._fee;
                                     memo = null;
                                     created_at_time = null;
