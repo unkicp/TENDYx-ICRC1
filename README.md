@@ -1,4 +1,8 @@
-# TENDY-icrc1
+# TENDYx-icrc1 fork of TENDY
+Note: This ICRC-1 fork contains a fix which involved removing astersiks in a few places.
+
+TENDY-icrc1 readme:
+
 speciak thanks to sneed ICRC1 Token, and B, J, T, C, I, A, Mr. M, 🌻, L, icchads etc
 
 we will be pushing the code to this repo within the next 20 hours
